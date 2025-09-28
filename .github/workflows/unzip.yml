@@ -1,0 +1,26 @@
+name: Unzip website
+
+on:
+  push:
+    paths:
+      - website.zip
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Unzip website and commit
+        run: |
+          unzip -o website.zip -d .
+          rm website.zip
+          git add .
+          git commit -m "Unzip website contents"
+          git push
