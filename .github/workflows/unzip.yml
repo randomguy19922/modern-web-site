@@ -6,6 +6,8 @@ on:
 permissions:
   contents: write
 jobs:
+  workflow_dispatch:
+
   unzip:
     runs-on: ubuntu-latest
     steps:
