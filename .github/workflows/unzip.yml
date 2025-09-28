@@ -3,11 +3,10 @@ on:
   push:
     paths:
       - website.zip
+  w  orkflow_dispatch:
 permissions:
   contents: write
 jobs:
-  workflow_dispatch:
-
   unzip:
     runs-on: ubuntu-latest
     steps:
